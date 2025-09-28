@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: oriya-nginx
+spec:
+  replicas: 4
+  selector: 
+    matchLabels:
+      app: nginxi
+  template:
+    metadata:
+      name: oriya-nginx-pod
+      labels:
+        app: nginxi
+    spec:
+      containers:
+        - name: oriya-nginx-container
+          image: oriyazec/oriya-ng:1
+          command:
+          ports:
+            - containerPort: 80
