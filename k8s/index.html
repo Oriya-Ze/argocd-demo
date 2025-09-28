@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>קליסטניקס - כוח הגוף שלך</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            color: white;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .main-content {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            animation: slideInUp 1s ease-out 0.6s both;
+        }
+
+        .intro-section {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .intro-section h2 {
+            color: #667eea;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .intro-section p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .benefit-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .exercises-section {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+
+        .exercises-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .exercise-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .exercise-item {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            transition: background 0.3s ease;
+        }
+
+        .exercise-item:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .exercise-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .tips-section {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+
+        .tips-section h2 {
+            color: #667eea;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        .tips-list {
+            list-style: none;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .tips-list li {
+            background: white;
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-right: 5px solid #667eea;
+            transition: transform 0.3s ease;
+        }
+
+        .tips-list li:hover {
+            transform: translateX(-10px);
+        }
+
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            margin: 40px 0;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .main-content {
+                padding: 20px;
+            }
+            
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>💪 קליסטניקס</h1>
+            <p class="subtitle">גלה את הכוח הטבעי של הגוף שלך</p>
+        </header>
+
+        <div class="main-content">
+            <div class="intro-section">
+                <h2>מה זה קליסטניקס?</h2>
+                <p>
+                    קליסטניקס הוא אומנות הכוח הטבעי - שיטת אימון המתבססת על משקל הגוף עצמו. 
+                    ללא ציוד מיוחד או חדר כושר, תוכל לבנות כוח, גמישות וקואורדינציה מדהימים 
+                    בכל מקום ובכל זמן. זוהי דרך עתיקה ומוכחת לחיזוק הגוף והנפש.
+                </p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🏋️‍♂️</div>
+                    <h3>כוח פונקציונלי</h3>
+                    <p>פיתוח כוח אמיתי שמשרת אותך בחיי היומיום, לא רק במכון הכושר</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">💰</div>
+                    <h3>חיסכון כספי</h3>
+                    <p>אין צורך במנוי יקר לחדר כושר או בציוד מיוחד - הגוף שלך הוא הכלי</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🌍</div>
+                    <h3>אימון בכל מקום</h3>
+                    <p>בבית, בפארק, בחופשה - תוכל להתאמן בכל מקום שתרצה</p>
+                </div>
+                
+                <div class="benefit-card">
+                    <div class="benefit-icon">🧠</div>
+                    <h3>חיזוק הנפש</h3>
+                    <p>אימון שמפתח גם את הכוח המנטלי, הסבלנות וההתמדה</p>
+                </div>
+            </div>
+
+            <div class="exercises-section">
+                <h2>תרגילי יסוד בקליסטניקס</h2>
+                <div class="exercise-list">
+                    <div class="exercise-item">
+                        <h4>כפיפות בטן (Push-ups)</h4>
+                        <p>התרגיל הבסיסי ביותר לחיזוק החזה, הכתפיים והזרועות</p>
+                    </div>
+                    
+                    <div class="exercise-item">
+                        <h4>תלייה על מתח (Pull-ups)</h4>
+                        <p>פיתוח כוח גב עליון ויציבה נכונה</p>
+                    </div>
+                    
+                    <div class="exercise-item">
+                        <h4>שכיבות סמיכה (Dips)</h4>
+                        <p>חיזוק חזה תחתון, כתפיים וזרועות אחוריות</p>
+                    </div>
+                    
+                    <div class="exercise-item">
+                        <h4>סקוואט (Squats)</h4>
+                        <p>חיזוק רגליים וישבן - הבסיס לכל תנועה</p>
+                    </div>
+                    
+                    <div class="exercise-item">
+                        <h4>פלאנק (Plank)</h4>
+                        <p>חיזוק ליבה ויציבות הגוף</p>
+                    </div>
+                    
+                    <div class="exercise-item">
+                        <h4>הליכת ידיים (Handstand)</h4>
+                        <p>שיא הקליסטניקס - כוח, איזון ושליטה מלאה</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tips-section">
+                <h2>טיפים להתחלה נכונה</h2>
+                <ul class="tips-list">
+                    <li>🎯 <strong>התחל בקטן:</strong> התחל עם תרגילים בסיסיים ובצע אותם נכון לפני שמתקדם</li>
+                    <li>⏰ <strong>עקביות חשובה:</strong> עדיף 15 דקות כל יום מאשר שעה פעם בשבוע</li>
+                    <li>📈 <strong>התקדם בהדרגה:</strong> כל שבוע הוסף חזרה אחת או קושי נוסף</li>
+                    <li>🎧 <strong>האזן לגוף:</strong> אם כואב לך, עצור ובדוק את הטכניקה</li>
+                    <li>📚 <strong>למד טכניקה:</strong> צפה בסרטונים וקרא מדריכים לפני שתנסה תרגילים חדשים</li>
+                    <li>🤝 <strong>מצא שותף:</strong> אימון עם חבר מעודד ומגביר מוטיבציה</li>
+                    <li>📱 <strong>תעד התקדמות:</strong> רשום את התרגילים והחזרות כדי לראות שיפור</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2>מוכן להתחיל את המסע שלך?</h2>
+            <p>הגוף שלך הוא המכונה הכי מדהימה בעולם. הגיע הזמן לגלות את הפוטנציאל המלא שלו!</p>
+            <a href="#" class="cta-button">התחל עכשיו! 🚀</a>
+        </div>
+    </div>
+</body>
+</html>
